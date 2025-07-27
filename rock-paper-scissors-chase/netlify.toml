@@ -1,5 +1,8 @@
 # Netlify 部署配置
 [build]
+  # 基礎目錄 (相對於倉庫根目錄)
+  base = "rock-paper-scissors-chase"
+  
   # 建置命令
   command = "npm run build"
   
