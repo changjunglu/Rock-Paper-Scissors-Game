@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "vitepress-plugin-mermaid": "^2.0.17"
+  }
+}

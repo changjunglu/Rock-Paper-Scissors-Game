@@ -1,0 +1,40 @@
+# Netlify 部署配置
+[build]
+  # 建置命令
+  command = "npm run build"
+  
+  # 發布目錄 (Vite 建置輸出)
+  publish = "dist"
+  
+  # Node.js 版本
+  environment = { NODE_VERSION = "18" }
+
+# SPA 重定向規則 - 將所有路由重定向到 index.html
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 快取設定
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 安全性標頭
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
