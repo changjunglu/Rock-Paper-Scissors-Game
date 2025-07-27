@@ -1,4 +1,12 @@
 [build]
+  # 基礎目錄 - 告訴 Netlify 在子目錄中建置
   base = "rock-paper-scissors-chase"
+  
+  # 建置命令
   command = "npm run build"
+  
+  # 發布目錄 - 相對於基礎目錄
   publish = "dist"
+  
+  # Node.js 版本
+  environment = { NODE_VERSION = "18" }
